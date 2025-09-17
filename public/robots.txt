@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://sdhkamenka.cz/sitemap.xml
+
+# Disallow admin pages
+Disallow: /admin
+
+# Allow important pages
+Allow: /
+Allow: /o-nas
+Allow: /cinnost
+Allow: /galerie
+Allow: /kalendar
+Allow: /kontakt
+Allow: /historie
+
+# Cache crawling
+Crawl-delay: 1
