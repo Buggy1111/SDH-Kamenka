@@ -81,7 +81,7 @@ export default function KontaktPage() {
             <p className="text-red-100 text-base font-medium">V případě nouze volejte okamžitě</p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 max-w-6xl mx-auto">
             {emergencyContacts.map((contact, index) => (
               <motion.a
                 key={contact.number}
@@ -173,7 +173,7 @@ export default function KontaktPage() {
       {/* Ultra Premium Contact Section - Light with Colors */}
       <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50">
         <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 max-w-7xl mx-auto">
 
             {/* Contact Information - Colorful Design */}
             <motion.div

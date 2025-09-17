@@ -560,7 +560,7 @@ export default function Navigation() {
               </div>
 
               {/* Navigation Items with Premium Design */}
-              <div className="flex-1 overflow-y-auto px-4 py-6">
+              <div className="flex-1 overflow-y-auto px-4 py-4 max-h-[calc(100vh-240px)]">
                 <div className="space-y-3">
                   {navItems.map((item, index) => {
                     const isActive = pathname === item.href || pathname.startsWith(item.href + '/')
@@ -689,7 +689,7 @@ export default function Navigation() {
                 </motion.a>
                 
                 {/* Status Indicator */}
-                <div className="flex items-center justify-center gap-2 mt-4 text-xs text-gray-500">
+                <div className="flex items-center justify-center gap-2 mt-2 mb-4 text-xs text-gray-500">
                   <motion.div 
                     animate={{ scale: [1, 1.2, 1] }}
                     transition={{ repeat: Infinity, duration: 2 }}

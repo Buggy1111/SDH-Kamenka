@@ -80,8 +80,8 @@ export default function AdminPage() {
                 <div>
                   <h3 className="text-base font-semibold text-yellow-900 mb-2">Poznámka o Facebook integraci</h3>
                   <p className="text-yellow-800 text-sm">
-                    Facebook API integrace byla odstraněna pro zjednodušení architektury.
-                    Facebook obsah je nyní dostupný přes přímé odkazy v komponentě FacebookFollow.
+                    Facebook API integrace byla kompletně odstraněna pro zjednodušení architektury a lepší výkon webu.
+                    Obsah je nyní statický a plně optimalizovaný.
                   </p>
                 </div>
               </div>

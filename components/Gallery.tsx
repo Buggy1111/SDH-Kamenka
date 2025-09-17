@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion'
 import { Camera, ExternalLink, Calendar, Trophy, PartyPopper, Flame } from 'lucide-react'
 import Link from 'next/link'
-import Image from 'next/image'
 
 export default function Gallery() {
   const galleryCategories = [
@@ -336,7 +335,7 @@ export default function Gallery() {
 
             {/* Albums Grid */}
             {category.albums.length > 0 ? (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6">
                 {category.albums.map((album, index) => (
                   <motion.div
                     key={album.name}
@@ -354,14 +353,11 @@ export default function Gallery() {
                     >
                       <div className="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all group-hover:scale-[1.02]">
                         {/* Thumbnail Image */}
-                        <div className="aspect-[4/3] relative overflow-hidden">
-                          <Image
-                            src={category.thumbnailImage}
-                            alt={`${category.title} - ${album.name}`}
-                            fill
-                            className="object-cover"
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                          />
+                        <div className="aspect-[4/3] relative overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                          <div className="text-center">
+                            <category.icon className="h-12 w-12 text-gray-400 mx-auto mb-2" />
+                            <span className="text-gray-500 text-sm font-medium">{album.thumbnail}</span>
+                          </div>
                           {/* Hover overlay */}
                           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
                             <div className="bg-white rounded-full p-3 shadow-lg">

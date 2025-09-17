@@ -8,14 +8,14 @@ const timelineEvents = [
   {
     year: 1879,
     title: "První hasičská zbrojnice",
-    description: "Vybudování první hasičské zbrojnice na návsi (č.p. 84) - počátek hasičské tradice v Kamenici",
+    description: "Vybudování první hasičské zbrojnice na návsi (č.p. 84) - počátek hasičské tradice v Kamenka",
     icon: Shield,
     color: "from-red-500 to-orange-600"
   },
   {
     year: 1883,
     title: "Oficiální založení sboru",
-    description: "Dobrovolnický hasičský sbor byl v Kamenici oficiálně založen z podnětu Franze Tenglera z č.p. 42. Název: 'Freiwillige Feuerwehr zu Steineck'",
+    description: "Dobrovolnický hasičský sbor byl v Kamenka oficiálně založen z podnětu Franze Tenglera z č.p. 42. Název: 'Freiwillige Feuerwehr zu Steineck'",
     icon: Flame,
     color: "from-orange-500 to-red-600"
   },
@@ -194,10 +194,10 @@ export default function HistoriePage() {
             transition={{ duration: 1 }}
           >
             <Clock className="w-18 h-18 text-orange-500 mx-auto mb-5" />
-            <h1 className="text-5xl md:text-7xl font-black text-red-500 mb-5">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-red-500 mb-5">
               141 LET
             </h1>
-            <p className="text-2xl md:text-4xl font-bold text-red-500 mb-3">
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-red-500 mb-3">
               TRADICE A ODVAHA
             </p>
             <p className="text-lg md:text-xl text-red-400 max-w-3xl mx-auto">
@@ -240,14 +240,14 @@ export default function HistoriePage() {
               return (
                 <motion.div
                   key={event.year}
-                  className={`relative flex items-center mb-20 ${isLeft ? 'flex-row' : 'flex-row-reverse'}`}
+                  className={`relative flex flex-col md:flex-row items-center mb-20 ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'}`}
                   initial={{ opacity: 0, x: isLeft ? -100 : 100 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: index * 0.1 }}
                 >
                   {/* Content */}
-                  <div className={`w-5/12 ${isLeft ? 'text-right pr-10' : 'text-left pl-10'}`}>
+                  <div className={`w-full md:w-5/12 ${isLeft ? 'md:text-right md:pr-10' : 'md:text-left md:pl-10'} text-center px-4 mb-6 md:mb-0`}>
                     <motion.div
                       className="glass-effect p-6 rounded-2xl transition-all duration-300 hover:shadow-2xl hover:z-50 relative cursor-pointer"
                       whileHover={{ scale: 1.2 }}
@@ -309,7 +309,7 @@ export default function HistoriePage() {
               <p className="text-gray-900 leading-relaxed mb-4">
                 Ještě před oficiálním založením sboru vybudovali obyvatelé Kamenky v roce <strong>1879</strong> první
                 hasičskou zbrojnici (č.p. 84) na návsi, která stála naproti statku č. 14. <strong>Podle kroniky z roku 2006</strong>
-                byl sbor dobrovolných hasičů v Kamence oficiálně založen v roce <strong>1883</strong> z iniciativy <strong>Franze Tenglera</strong> z č.p. 42.
+                byl sbor dobrovolných hasičů v Kamenka oficiálně založen v roce <strong>1883</strong> z iniciativy <strong>Franze Tenglera</strong> z č.p. 42.
               </p>
               <p className="text-gray-900 leading-relaxed">
                 Už v roce 1885 měl sbor 53 členů a velitelem byl <strong>Franz Löw</strong> z č.p. 55. Vznik sboru byl reakcí
@@ -396,25 +396,104 @@ export default function HistoriePage() {
                 Jan Pavlica (2020-2023), Dalibor Bűrgermeister (od 2023).
               </p>
 
-              <div className="mt-8 p-6 bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl border-2 border-amber-200">
-                <div className="flex items-start gap-4">
-                  <div className="mt-1">
-                    <span className="text-3xl">📚</span>
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-bold text-gray-900 mb-2">Poděkování kronikáři</h4>
-                    <p className="text-gray-800 leading-relaxed">
-                      <strong>Tato historie byla sepsána panem Milanem Tomášem</strong>, dlouholetým kronikářem obce Kamenka
-                      a místním učitelem, který pečlivě zdokumentoval dějiny naší obce i hasičského sboru.
-                      Jeho práce byla publikována v časopise Poodří 4/2006, kde zpracoval kapitolu &quot;Historie po roce 1945&quot;
-                      a mnoho dalších textů o našem regionu.
-                    </p>
-                    <p className="text-gray-700 mt-3 italic">
-                      Vzdáváme čest jeho památce a děkujeme za zachování naší historie pro budoucí generace. 🕊️
-                    </p>
-                  </div>
+              {/* Luxusní poděkování kronikáři */}
+              <motion.div
+                className="mt-16 relative overflow-hidden"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+              >
+                {/* Pozadí s gradientem a efekty */}
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-900 via-yellow-800 to-orange-900 rounded-3xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-3xl"></div>
+                <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(255,215,0,0.15),transparent_50%)]"></div>
+                <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,rgba(255,140,0,0.15),transparent_50%)]"></div>
+
+                {/* Dekorativní elementy */}
+                <div className="absolute top-6 right-6 w-20 h-20 border border-yellow-400/30 rounded-full"></div>
+                <div className="absolute bottom-6 left-6 w-16 h-16 border border-orange-400/30 rounded-full"></div>
+                <div className="absolute top-1/2 left-10 w-2 h-2 bg-yellow-400/50 rounded-full animate-pulse"></div>
+                <div className="absolute top-1/4 right-16 w-1 h-1 bg-orange-400/50 rounded-full animate-pulse"></div>
+
+                {/* Obsah */}
+                <div className="relative z-10 p-12">
+                  <motion.div
+                    className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-8"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.3, duration: 0.6 }}
+                  >
+                    {/* Ikona a dekorace */}
+                    <div className="flex-shrink-0">
+                      <motion.div
+                        className="relative"
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        transition={{ type: "spring", stiffness: 200 }}
+                      >
+                        <div className="w-24 h-24 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-2xl">
+                          <div className="w-20 h-20 bg-gradient-to-br from-amber-50 to-yellow-100 rounded-xl flex items-center justify-center">
+                            <span className="text-4xl">📚</span>
+                          </div>
+                        </div>
+                        {/* Světelný efekt */}
+                        <div className="absolute -inset-2 bg-yellow-400/20 rounded-2xl blur-xl"></div>
+                      </motion.div>
+                    </div>
+
+                    {/* Text content */}
+                    <div className="flex-1">
+                      <motion.h4
+                        className="text-3xl lg:text-4xl font-display font-bold text-transparent bg-gradient-to-r from-yellow-100 via-yellow-50 to-orange-100 bg-clip-text mb-4"
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.4, duration: 0.6 }}
+                      >
+                        Pocta kronikáři
+                      </motion.h4>
+
+                      <motion.div
+                        className="space-y-4"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.5, duration: 0.6 }}
+                      >
+                        <p className="text-lg text-amber-50 leading-relaxed">
+                          <strong className="text-yellow-200">Tato historie byla sepsána panem Milanem Tomášem</strong>,
+                          dlouholetým kronikářem obce Kamenka a místním učitelem, který s láskou a pečlivostí
+                          zdokumentoval dějiny naší obce i hasičského sboru.
+                        </p>
+
+                        <p className="text-amber-100 leading-relaxed">
+                          Jeho práce byla publikována v časopise <em className="text-yellow-200">Poodří 4/2006</em>,
+                          kde zpracoval kapitolu <strong>&quot;Historie po roce 1945&quot;</strong> a mnoho dalších textů
+                          o našem krásném regionu.
+                        </p>
+
+                        <motion.div
+                          className="pt-4 border-t border-yellow-400/30"
+                          initial={{ opacity: 0 }}
+                          whileInView={{ opacity: 1 }}
+                          transition={{ delay: 0.7, duration: 0.6 }}
+                        >
+                          <p className="text-xl text-yellow-100 font-medium italic flex items-center gap-3">
+                            <span className="text-2xl">🕊️</span>
+                            Vzdáváme čest jeho památce a děkujeme za zachování naší historie pro budoucí generace.
+                          </p>
+                        </motion.div>
+                      </motion.div>
+                    </div>
+                  </motion.div>
+
+                  {/* Spodní dekorativní linie */}
+                  <motion.div
+                    className="mt-8 h-1 bg-gradient-to-r from-transparent via-yellow-400/50 to-transparent rounded-full"
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    transition={{ delay: 0.8, duration: 1 }}
+                  ></motion.div>
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           </div>
         </div>

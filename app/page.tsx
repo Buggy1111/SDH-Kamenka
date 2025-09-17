@@ -5,7 +5,6 @@ import Navigation from '@/components/Navigation'
 // Lazy load komponenty co nejsou crítico "above the fold"
 const Services = lazy(() => import('@/components/Services'))
 const News = lazy(() => import('@/components/News'))
-const FacebookFollow = lazy(() => import('@/components/FacebookFollow'))
 const Partners = lazy(() => import('@/components/Partners'))
 const Footer = lazy(() => import('@/components/Footer'))
 
@@ -28,10 +27,6 @@ export default function Home() {
 
       <Suspense fallback={<SectionLoader />}>
         <News />
-      </Suspense>
-
-      <Suspense fallback={<SectionLoader />}>
-        <FacebookFollow />
       </Suspense>
 
       <Suspense fallback={<SectionLoader />}>

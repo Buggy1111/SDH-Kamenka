@@ -49,7 +49,7 @@ export default function Footer() {
       {/* Main Footer - Minimalistic Luxury */}
       <div className="bg-gradient-to-br from-gray-900 via-gray-950 to-black">
         <div className="container mx-auto px-4 py-16">
-          <div className="grid lg:grid-cols-3 gap-12 mb-12">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 mb-12">
 
             {/* Brand Section */}
             <motion.div
@@ -91,7 +91,7 @@ export default function Footer() {
                 <motion.a
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  href="https://www.facebook.com/profile.php?id=100054494319025"
+                  href="https://www.facebook.com/p/SDH-Kamenka-100054494319025/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group relative"

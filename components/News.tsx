@@ -10,29 +10,29 @@ export default function News() {
   const news = [
     {
       id: 1,
-      title: 'Úspěch na okrskové soutěži v Odrách',
-      excerpt: 'Naše družstvo mužů obsadilo krásné 2. místo v požárním útoku s časem 18.32s.',
-      date: new Date('2025-01-10'),
-      category: 'Soutěže',
+      title: 'Kamenský špalek 2025',
+      excerpt: 'Tradiční setkání Kamenský Špalek se konalo 13. září 2025. Skvělá atmosféra a účast!',
+      date: new Date('2025-09-13'),
+      category: 'Akce',
       icon: Trophy,
       image: null,
       featured: true
     },
     {
       id: 2,
-      title: 'Nábor mladých hasičů',
-      excerpt: 'Přijďte mezi nás! Kroužek mladých hasičů přijímá nové členy ve věku 6-15 let.',
-      date: new Date('2025-01-08'),
-      category: 'Mladí hasiči',
+      title: 'Super prázdniny 2025',
+      excerpt: 'Prázdninové akce a zábava pro děti proběhly v srpnu. Děti si užily spoustu zábavy!',
+      date: new Date('2025-08-09'),
+      category: 'Děti',
       icon: Users,
       image: null
     },
     {
       id: 3,
-      title: 'Výjezd k požáru stohu',
-      excerpt: 'Jednotka zasahovala u požáru stohu slámy v katastru obce. Zásah trval 3 hodiny.',
-      date: new Date('2025-01-05'),
-      category: 'Zásahy',
+      title: 'Soutěž Véska 2025',
+      excerpt: 'Naši hasiči se zúčastnili hasičské soutěže ve Vésce dne 27. července 2025.',
+      date: new Date('2025-07-27'),
+      category: 'Soutěže',
       icon: Flame,
       image: null
     }
@@ -99,13 +99,6 @@ export default function News() {
                       {item.excerpt}
                     </p>
                     
-                    <motion.button
-                      whileHover={{ x: 5 }}
-                      className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-orange-600 text-white px-4 py-2 rounded-lg font-bold hover:from-red-700 hover:to-orange-700 transition-all shadow-lg"
-                    >
-                      Číst více
-                      <ArrowRight className="h-4 w-4" />
-                    </motion.button>
                   </div>
                 </div>
               </motion.article>

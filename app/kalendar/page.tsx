@@ -122,12 +122,18 @@ export default function KalendarPage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="text-center p-4 bg-gray-50 rounded-lg"
+                className={`text-center p-4 rounded-lg bg-gradient-to-br ${
+                  stat.color === 'fire' ? 'from-red-500 to-red-600' :
+                  stat.color === 'blue' ? 'from-blue-500 to-blue-600' :
+                  stat.color === 'yellow' ? 'from-yellow-500 to-yellow-600' :
+                  stat.color === 'pink' ? 'from-pink-500 to-pink-600' :
+                  'from-green-500 to-green-600'
+                } text-white`}
               >
-                <div className={`text-xl font-bold mb-1 ${stat.color === 'fire' ? 'text-fire-600' : `text-${stat.color}-600`}`}>
+                <div className="text-xl font-bold mb-1">
                   {stat.value}
                 </div>
-                <div className="text-xs text-gray-800 font-medium">{stat.label}</div>
+                <div className="text-xs font-bold">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -140,7 +146,7 @@ export default function KalendarPage() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-2xl md:text-3xl font-display font-bold text-center mb-10"
+            className="text-2xl md:text-3xl font-display font-bold text-center mb-10 text-black"
           >
             Nadcházející akce
           </motion.h2>
@@ -154,7 +160,7 @@ export default function KalendarPage() {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-xl font-bold text-gray-900 mb-5 capitalize border-l-4 border-fire-500 pl-3">
+                <h3 className="text-xl font-bold text-black mb-5 capitalize border-l-4 border-fire-500 pl-3">
                   {month}
                 </h3>
                 
@@ -183,25 +189,25 @@ export default function KalendarPage() {
                         <div className="flex-1 p-6">
                           <div className="flex items-start justify-between mb-3">
                             <div>
-                              <h4 className="text-lg font-bold text-gray-900 mb-1">
+                              <h4 className="text-lg font-bold text-black mb-1">
                                 {event.title}
                               </h4>
                               <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${getEventTypeColor(event.type)}`}>
                                 {event.type}
                               </span>
                             </div>
-                            <event.icon className={`h-6 w-6 text-fire-500`} />
+                            <event.icon className={`h-6 w-6 text-fire-600`} />
                           </div>
 
-                          <p className="text-gray-700 mb-3 text-sm">{event.description}</p>
+                          <p className="text-black mb-3 text-sm font-medium">{event.description}</p>
 
-                          <div className="flex flex-wrap gap-4 text-xs text-gray-900 font-semibold">
+                          <div className="flex flex-wrap gap-4 text-xs text-black font-bold">
                             <div className="flex items-center gap-1">
-                              <Clock className="h-3 w-3" />
+                              <Clock className="h-4 w-4 text-gray-800" />
                               <span>{event.time}</span>
                             </div>
                             <div className="flex items-center gap-1">
-                              <MapPin className="h-3 w-3" />
+                              <MapPin className="h-4 w-4 text-gray-800" />
                               <span>{event.location}</span>
                             </div>
                           </div>
@@ -222,21 +228,23 @@ export default function KalendarPage() {
             viewport={{ once: true }}
             className="text-center mt-12"
           >
-            <div className="bg-fire-50 border border-fire-200 rounded-lg p-8 max-w-2xl mx-auto">
-              <Calendar className="h-9 w-9 text-fire-600 mx-auto mb-3" />
-              <h3 className="text-lg font-bold text-gray-900 mb-2">
+            <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg p-8 max-w-2xl mx-auto shadow-lg">
+              <Calendar className="h-9 w-9 text-white mx-auto mb-3" />
+              <h3 className="text-lg font-bold text-white mb-2">
                 Chcete být informováni o všech akcích?
               </h3>
-              <p className="text-gray-800 mb-3 text-sm">
-                Sledujte nás na Facebooku nebo se přihlaste k odběru novinek
+              <p className="text-white mb-4 text-sm font-medium">
+                Sledujte nás na Facebooku a buďte vždy informováni o našich akcích
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <button className="bg-fire-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-fire-700 transition-colors text-sm">
+              <div className="flex justify-center">
+                <a
+                  href="https://www.facebook.com/p/SDH-Kamenka-100054494319025/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white text-blue-600 px-6 py-3 rounded-lg font-bold hover:bg-blue-50 hover:text-blue-700 hover:shadow-lg transform hover:scale-105 transition-all duration-200 text-base shadow-md inline-block"
+                >
                   Sledovat na Facebooku
-                </button>
-                <button className="border border-fire-600 text-fire-600 px-5 py-2 rounded-lg font-semibold hover:bg-fire-50 transition-colors text-sm">
-                  Přihlásit k odběru
-                </button>
+                </a>
               </div>
             </div>
           </motion.div>

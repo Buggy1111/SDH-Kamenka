@@ -81,7 +81,7 @@ export default function ONasPage() {
                 Kdo jsme
               </h2>
               <p className="text-base text-gray-700 leading-relaxed max-w-4xl mx-auto">
-                Sbor dobrovolných hasičů Kamenka je jednotka požární ochrany kategorie JPO V,
+                Sbor dobrovolných hasičů Kamenka je jednotka požární ochrany kategorie JPO III,
                 která zabezpečuje požární ochranu a pomoc při mimořádných událostech na území
                 obce Kamenka a přilehlých oblastech. Jsme součástí Integrovaného záchranného
                 systému České republiky.
@@ -155,9 +155,9 @@ export default function ONasPage() {
               >
                 <h3 className="text-lg font-bold text-red-600 mb-3">Základní údaje</h3>
                 <ul className="space-y-2 text-gray-700">
-                  <li><strong>Název:</strong> SHČMS - Sbor dobrovolných hasičů Kaménka</li>
+                  <li><strong>Název:</strong> SHČMS - Sbor dobrovolných hasičů Kamenka</li>
                   <li><strong>IČO:</strong> 65472497</li>
-                  <li><strong>Kategorie JPO:</strong> JPO V</li>
+                  <li><strong>Kategorie JPO:</strong> JPO III</li>
                   <li><strong>Okrsek:</strong> Odry</li>
                   <li><strong>Okres:</strong> Nový Jičín</li>
                   <li><strong>Adresa zbrojnice:</strong> Kamenka č.p. 40</li>
@@ -179,7 +179,7 @@ export default function ONasPage() {
             Naše hodnoty
           </motion.h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 max-w-6xl mx-auto">
             {values.map((value, index) => (
               <motion.div
                 key={value.title}
@@ -211,7 +211,7 @@ export default function ONasPage() {
             Vedení sboru
           </motion.h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 max-w-6xl mx-auto">
             {leadership.map((leader, index) => (
               <motion.div
                 key={leader.position}

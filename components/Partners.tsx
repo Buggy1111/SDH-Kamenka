@@ -6,11 +6,9 @@ import Link from 'next/link'
 export default function Partners() {
   const partners = [
     { name: 'Město Odry', logo: 'ODRY' },
-    { name: 'HZS MSK', logo: 'HZS' },
-    { name: 'OSH Nový Jičín', logo: 'OSH' },
     { name: 'Obec Kamenka', logo: 'KAMENKA' },
-    { name: 'ČHMÚ', logo: 'ČHMÚ' },
-    { name: 'Autoservis Novák', logo: 'NOVÁK' }
+    { name: 'SDH Véska', logo: 'VÉSKA' },
+    { name: 'SDH Heřmanice', logo: 'HEŘMANICE' }
   ]
 
   return (
@@ -31,7 +29,7 @@ export default function Partners() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-4xl mx-auto">
           {partners.map((partner, index) => (
             <motion.div
               key={partner.name}
