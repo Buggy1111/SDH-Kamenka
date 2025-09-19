@@ -15,7 +15,7 @@ export default function Hero() {
   ]
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden pt-20">
+    <section className="relative h-screen w-full overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-red-600 via-red-700 to-orange-800" />
@@ -25,7 +25,7 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center text-white">
+      <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center text-white pt-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

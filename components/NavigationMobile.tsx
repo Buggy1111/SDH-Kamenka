@@ -126,7 +126,7 @@ export default function NavigationMobile({
               stiffness: 250,
               mass: 0.8
             }}
-            className="absolute right-0 top-0 h-full w-80 max-w-[85vw] shadow-2xl"
+            className="absolute inset-0 h-full w-full shadow-2xl"
             style={{
               background: 'linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(31,41,55,0.98) 50%, rgba(0,0,0,0.95) 100%)',
               backdropFilter: 'blur(20px)',
@@ -135,92 +135,21 @@ export default function NavigationMobile({
               boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(239, 68, 68, 0.1)'
             }}
           >
-            {/* Ultra Luxury Header with Fire Elements */}
-            <div className="relative p-6 pt-16">
-              <div className="absolute inset-0 bg-gradient-to-br from-fire-600/20 via-fire-700/10 to-transparent"></div>
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-fire-500 to-transparent"></div>
 
-              <div className="relative flex items-center gap-4">
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.3 }}
-                  className="relative"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-fire-400 to-fire-600 rounded-2xl blur-lg opacity-50"></div>
-                  <div className="relative p-4 bg-gradient-to-br from-fire-600 to-fire-800 rounded-2xl border border-fire-500/30">
-                    <motion.div
-                      animate={{
-                        scale: [1, 1.1, 1],
-                        rotate: [0, 5, -5, 0]
-                      }}
-                      transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                      }}
-                      className="relative"
-                      style={{ transformOrigin: 'bottom center' }}
-                    >
-                      <Flame className="h-7 w-7 text-white drop-shadow-[0_0_8px_rgba(255,69,0,0.9)]" />
-                      {/* Multiple flame layers for depth */}
-                      <motion.div
-                        className="absolute inset-0"
-                        animate={{
-                          scale: [1, 1.1, 0.9, 1],
-                          opacity: [0.5, 0.7, 0.4, 0.5]
-                        }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                          delay: 0.3
-                        }}
-                      >
-                        <Flame className="h-7 w-7 text-yellow-300" />
-                      </motion.div>
-                      <motion.div
-                        className="absolute inset-0"
-                        animate={{
-                          scale: [1, 0.95, 1.08, 1],
-                          opacity: [0.3, 0.5, 0.2, 0.3]
-                        }}
-                        transition={{
-                          duration: 3,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                          delay: 0.6
-                        }}
-                      >
-                        <Flame className="h-7 w-7 text-orange-400" />
-                      </motion.div>
-                    </motion.div>
-                  </div>
-                </motion.div>
-
-                <div>
-                  <motion.h2
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="text-2xl font-display font-bold text-white mb-1"
-                    style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}
-                  >
-                    SDH Kamenka
-                  </motion.h2>
-                  <p className="text-fire-200 text-sm font-medium">
-                    Est. 1883 • Protecting Community
-                  </p>
-                </div>
-              </div>
-
-              {/* Decorative elements */}
-              <div className="absolute bottom-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-fire-500/50 to-transparent"></div>
-            </div>
-
-            {/* Navigation Items with Premium Design */}
-            <div className="flex-1 overflow-y-auto px-3 py-3 sm:px-4 sm:py-4 max-h-[calc(100vh-250px)]">
-              <div className="space-y-2 sm:space-y-3">
+            {/* Navigation Items with Premium Design - Auto Responsive Layout */}
+            <div className="flex-1 px-4 flex flex-col justify-center min-h-0">
+              <div className="space-y-1 sm:space-y-2" style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                minHeight: 'calc(100vh - 160px)',
+                maxHeight: 'calc(100vh - 120px)'
+              }}>
                 {navItems.map((item, index) => {
-                  const isActive = pathname === item.href || pathname.startsWith(item.href + '/')
+                  // Fix for home page - exact match only for root path
+                  const isActive = item.href === '/'
+                    ? pathname === '/'
+                    : pathname === item.href || pathname.startsWith(item.href + '/')
 
                   return (
                     <motion.div
@@ -232,12 +161,13 @@ export default function NavigationMobile({
                       <Link
                         href={item.href}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className={`group relative flex items-center gap-4 p-4 rounded-2xl transition-all duration-300 overflow-hidden ${
+                        className={`group relative flex items-center gap-2 rounded-lg transition-all duration-300 overflow-hidden ${
                           isActive
                             ? 'bg-gradient-to-r from-fire-600/20 to-fire-700/10 border border-fire-500/30 text-white scale-[1.02]'
                             : 'text-gray-300 hover:bg-white/5 hover:border-fire-500/20 border border-transparent active:scale-95'
                         }`}
                         style={{
+                          padding: 'clamp(0.5rem, 2vh, 0.75rem) clamp(0.5rem, 2vw, 1rem)',
                           backdropFilter: isActive ? 'blur(10px)' : 'none',
                           boxShadow: isActive ? '0 8px 32px rgba(220, 38, 38, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)' : 'none'
                         }}
@@ -250,25 +180,27 @@ export default function NavigationMobile({
                         <motion.div
                           whileHover={{ scale: 1.1, rotate: 5 }}
                           transition={{ duration: 0.2 }}
-                          className={`relative z-10 p-3 rounded-xl transition-all ${
+                          className={`relative z-10 p-1.5 sm:p-2 rounded-lg transition-all ${
                             isActive
                               ? getActiveIconBackground(item.label)
                               : 'bg-white/10 group-hover:bg-white/20'
                           }`}
                         >
-                          <item.icon className={`h-5 w-5 ${getIconColor(item.label, isActive)}`} />
+                          <item.icon className={`${getIconColor(item.label, isActive)}`}
+                            style={{
+                              width: 'clamp(1rem, 3vw, 1.25rem)',
+                              height: 'clamp(1rem, 3vw, 1.25rem)'
+                            }} />
                         </motion.div>
 
                         <div className="flex-1 relative z-10">
-                          <div className={`font-bold text-base mb-1 ${
+                          <div className={`font-bold ${
                             isActive ? 'text-white' : 'text-gray-200 group-hover:text-white'
-                          }`}>
+                          }`}
+                          style={{
+                            fontSize: 'clamp(1rem, 4vw, 1.125rem)'
+                          }}>
                             {item.label}
-                          </div>
-                          <div className={`text-xs font-medium ${
-                            isActive ? 'text-fire-200' : 'text-gray-400 group-hover:text-fire-300'
-                          }`}>
-                            {item.description}
                           </div>
                         </div>
 
@@ -277,7 +209,7 @@ export default function NavigationMobile({
                           transition={{ duration: 0.2 }}
                           className="relative z-10"
                         >
-                          <ChevronDown className={`h-4 w-4 transition-colors ${
+                          <ChevronDown className={`h-3 w-3 sm:h-4 sm:w-4 transition-colors ${
                             isActive ? 'text-fire-300' : 'text-gray-500 group-hover:text-fire-400'
                           }`} />
                         </motion.div>
@@ -334,16 +266,16 @@ export default function NavigationMobile({
               </div>
             </div>
 
-            {/* Ultra Luxury Footer */}
-            <div className="relative p-6 border-t border-fire-500/20">
+            {/* Ultra Luxury Footer - Compact */}
+            <div className="relative p-3 border-t border-fire-500/20">
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
 
               {/* Decorative top line */}
               <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-fire-500/50 to-transparent"></div>
 
-              <div className="relative space-y-4">
+              <div className="relative space-y-2">
                 {/* Status indicator */}
-                <div className="flex items-center justify-center gap-3">
+                <div className="flex items-center justify-center gap-2">
                   <motion.div
                     animate={{
                       scale: [1, 1.2, 1],
@@ -354,9 +286,9 @@ export default function NavigationMobile({
                       repeat: Infinity,
                       ease: "easeInOut"
                     }}
-                    className="w-3 h-3 bg-gradient-to-br from-green-400 to-green-600 rounded-full shadow-lg shadow-green-500/50"
+                    className="w-2 h-2 bg-gradient-to-br from-green-400 to-green-600 rounded-full shadow-lg shadow-green-500/50"
                   />
-                  <span className="text-sm font-medium text-gray-300">
+                  <span className="text-xs font-medium text-gray-300">
                     Hasičská stanice v pohotovosti
                   </span>
                 </div>
@@ -365,9 +297,6 @@ export default function NavigationMobile({
                 <div className="text-center">
                   <p className="text-xs text-gray-400 font-medium">
                     SDH Kamenka • Est. 1883
-                  </p>
-                  <p className="text-xs text-fire-400 mt-1">
-                    Protecting Our Community Since 1883
                   </p>
                 </div>
               </div>
