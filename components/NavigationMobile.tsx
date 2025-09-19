@@ -79,7 +79,7 @@ export default function NavigationMobile({
             </div>
 
             {/* Navigation Items with Premium Design */}
-            <div className="flex-1 overflow-y-auto px-3 py-3 sm:px-4 sm:py-4 max-h-[calc(100vh-200px)] sm:max-h-[calc(100vh-240px)]">
+            <div className="flex-1 px-3 py-3 sm:px-4 sm:py-4">
               <div className="space-y-2 sm:space-y-3">
                 {navItems.map((item, index) => {
                   const isActive = pathname === item.href || pathname.startsWith(item.href + '/')
@@ -166,40 +166,8 @@ export default function NavigationMobile({
 
             {/* Premium Bottom Actions */}
             <div className="p-4 bg-gray-50/80 backdrop-blur-sm border-t border-gray-200/50">
-              {/* Quick Actions Row */}
-              <div className="flex gap-3 mb-4">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => {
-                    setIsSearchOpen(true)
-                    setIsMobileMenuOpen(false)
-                  }}
-                  className="flex-1 flex items-center justify-center gap-2 p-3 bg-gray-100 hover:bg-gray-200 rounded-xl transition-all duration-200"
-                >
-                  <Search className="h-4 w-4 text-gray-600" />
-                  <span className="text-sm font-medium text-gray-700">Hledat</span>
-                </motion.button>
-
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="p-3 bg-fire-100 hover:bg-fire-200 rounded-xl transition-all duration-200"
-                >
-                  <MapPin className="h-4 w-4 text-fire-600" />
-                </motion.button>
-              </div>
 
 
-              {/* Status Indicator */}
-              <div className="flex items-center justify-center gap-2 mt-2 mb-4 text-xs text-gray-500">
-                <motion.div
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ repeat: Infinity, duration: 2 }}
-                  className="w-2 h-2 bg-green-500 rounded-full"
-                />
-                <span>Hasičská stanice je v pohotovosti</span>
-              </div>
             </div>
           </motion.div>
         </motion.div>

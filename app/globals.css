@@ -227,6 +227,12 @@ body {
 
 /* Universal mobile fixes */
 @media (max-width: 768px) {
+  /* Fix gradient backgrounds on mobile */
+  .bg-gradient-to-br {
+    background: #dc2626 !important; /* fallback fire-600 */
+    background: linear-gradient(to bottom right, #dc2626, #b91c1c, #991b1b) !important;
+  }
+
   /* Prevent zoom on input focus */
   input,
   textarea,
