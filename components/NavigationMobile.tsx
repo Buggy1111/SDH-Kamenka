@@ -25,6 +25,77 @@ export default function NavigationMobile({
 }: NavigationMobileProps) {
   const pathname = usePathname()
 
+  // Funkce pro získání barev ikon
+  const getIconColor = (label: string, isActive: boolean) => {
+    if (isActive) return 'text-white'
+
+    switch (label) {
+      case 'Úvod':
+        return 'text-blue-400 group-hover:text-blue-300'
+      case 'O nás':
+        return 'text-green-400 group-hover:text-green-300'
+      case 'Historie':
+        return 'text-amber-400 group-hover:text-amber-300'
+      case 'Činnost':
+        return 'text-red-400 group-hover:text-red-300'
+      case 'Kalendář':
+        return 'text-purple-400 group-hover:text-purple-300'
+      case 'Galerie':
+        return 'text-pink-400 group-hover:text-pink-300'
+      case 'Kontakt':
+        return 'text-cyan-400 group-hover:text-cyan-300'
+      default:
+        return 'text-fire-400 group-hover:text-fire-300'
+    }
+  }
+
+  const getSubmenuIconColor = (label: string) => {
+    switch (label) {
+      case 'Soutěže':
+        return 'text-yellow-400 group-hover:text-yellow-300'
+      case 'Cvičení':
+        return 'text-orange-400 group-hover:text-orange-300'
+      case 'Zábava & Akce':
+        return 'text-purple-400 group-hover:text-purple-300'
+      default:
+        return 'text-pink-400 group-hover:text-pink-300'
+    }
+  }
+
+  const getSubmenuIconBackground = (label: string) => {
+    switch (label) {
+      case 'Soutěže':
+        return 'from-yellow-500/20 to-yellow-600/20 border-yellow-500/20 group-hover:from-yellow-500/30 group-hover:to-yellow-600/30'
+      case 'Cvičení':
+        return 'from-orange-500/20 to-orange-600/20 border-orange-500/20 group-hover:from-orange-500/30 group-hover:to-orange-600/30'
+      case 'Zábava & Akce':
+        return 'from-purple-500/20 to-purple-600/20 border-purple-500/20 group-hover:from-purple-500/30 group-hover:to-purple-600/30'
+      default:
+        return 'from-pink-500/20 to-pink-600/20 border-pink-500/20 group-hover:from-pink-500/30 group-hover:to-pink-600/30'
+    }
+  }
+
+  const getActiveIconBackground = (label: string) => {
+    switch (label) {
+      case 'Úvod':
+        return 'bg-gradient-to-br from-blue-500 to-blue-600 shadow-lg shadow-blue-500/30'
+      case 'O nás':
+        return 'bg-gradient-to-br from-green-500 to-green-600 shadow-lg shadow-green-500/30'
+      case 'Historie':
+        return 'bg-gradient-to-br from-amber-500 to-amber-600 shadow-lg shadow-amber-500/30'
+      case 'Činnost':
+        return 'bg-gradient-to-br from-red-500 to-red-600 shadow-lg shadow-red-500/30'
+      case 'Kalendář':
+        return 'bg-gradient-to-br from-purple-500 to-purple-600 shadow-lg shadow-purple-500/30'
+      case 'Galerie':
+        return 'bg-gradient-to-br from-pink-500 to-pink-600 shadow-lg shadow-pink-500/30'
+      case 'Kontakt':
+        return 'bg-gradient-to-br from-cyan-500 to-cyan-600 shadow-lg shadow-cyan-500/30'
+      default:
+        return 'bg-gradient-to-br from-fire-500 to-fire-600 shadow-lg shadow-fire-500/30'
+    }
+  }
+
   return (
     <AnimatePresence>
       {isMobileMenuOpen && (
@@ -87,8 +158,41 @@ export default function NavigationMobile({
                         repeat: Infinity,
                         ease: "easeInOut"
                       }}
+                      className="relative"
+                      style={{ transformOrigin: 'bottom center' }}
                     >
-                      <Flame className="h-7 w-7 text-white drop-shadow-lg" />
+                      <Flame className="h-7 w-7 text-white drop-shadow-[0_0_8px_rgba(255,69,0,0.9)]" />
+                      {/* Multiple flame layers for depth */}
+                      <motion.div
+                        className="absolute inset-0"
+                        animate={{
+                          scale: [1, 1.1, 0.9, 1],
+                          opacity: [0.5, 0.7, 0.4, 0.5]
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                          delay: 0.3
+                        }}
+                      >
+                        <Flame className="h-7 w-7 text-yellow-300" />
+                      </motion.div>
+                      <motion.div
+                        className="absolute inset-0"
+                        animate={{
+                          scale: [1, 0.95, 1.08, 1],
+                          opacity: [0.3, 0.5, 0.2, 0.3]
+                        }}
+                        transition={{
+                          duration: 3,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                          delay: 0.6
+                        }}
+                      >
+                        <Flame className="h-7 w-7 text-orange-400" />
+                      </motion.div>
                     </motion.div>
                   </div>
                 </motion.div>
@@ -148,11 +252,11 @@ export default function NavigationMobile({
                           transition={{ duration: 0.2 }}
                           className={`relative z-10 p-3 rounded-xl transition-all ${
                             isActive
-                              ? 'bg-gradient-to-br from-fire-500 to-fire-600 shadow-lg shadow-fire-500/30'
-                              : 'bg-white/10 text-fire-400 group-hover:bg-fire-500/20 group-hover:text-fire-300'
+                              ? getActiveIconBackground(item.label)
+                              : 'bg-white/10 group-hover:bg-white/20'
                           }`}
                         >
-                          <item.icon className="h-5 w-5" />
+                          <item.icon className={`h-5 w-5 ${getIconColor(item.label, isActive)}`} />
                         </motion.div>
 
                         <div className="flex-1 relative z-10">
@@ -206,9 +310,9 @@ export default function NavigationMobile({
                                 >
                                   <motion.div
                                     whileHover={{ scale: 1.1, rotate: 10 }}
-                                    className="p-2 bg-gradient-to-br from-fire-500/20 to-fire-600/20 rounded-lg border border-fire-500/20 group-hover:from-fire-500/30 group-hover:to-fire-600/30 transition-all"
+                                    className={`p-2 bg-gradient-to-br ${getSubmenuIconBackground(subItem.label)} rounded-lg border transition-all`}
                                   >
-                                    {subItem.icon && <subItem.icon className="h-4 w-4 text-fire-400 group-hover:text-fire-300" />}
+                                    {subItem.icon && <subItem.icon className={`h-4 w-4 ${getSubmenuIconColor(subItem.label)}`} />}
                                   </motion.div>
                                   <div className="flex-1">
                                     <div className="font-semibold text-sm text-gray-200 group-hover:text-white transition-colors">
