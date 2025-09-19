@@ -7,58 +7,81 @@ import { Calendar, Clock, MapPin, Users, Trophy, Heart, Flame, GraduationCap } f
 
 export default function KalendarPage() {
   const events = [
+    // Skutečné události z galerie - seřazeno od září dolů
     {
       id: 1,
-      title: 'Hasičský ples 2025',
-      date: '2025-02-15',
-      time: '20:00',
-      location: 'Sokolovna Kamenka',
+      title: 'Kamenský špalek',
+      date: '2025-09-13',
+      time: '16:00',
+      location: 'Kamenka',
       type: 'Kulturní akce',
-      description: 'Tradiční hasičský ples s bohatým programem, tombolou a taneční zábavou',
+      description: 'Kamenský Špalek - tradiční setkání 2025',
       icon: Heart,
-      color: 'from-pink-500 to-red-500'
+      color: 'from-orange-500 to-red-500'
     },
     {
       id: 2,
-      title: 'Výroční valná hromada',
-      date: '2025-02-22',
-      time: '17:00', 
-      location: 'Hasičská zbrojnice',
-      type: 'Oficiální',
-      description: 'Hodnocení činnosti za uplynulý rok a plánování na rok 2025',
-      icon: Users,
-      color: 'from-blue-500 to-blue-600'
+      title: 'Super prázdniny',
+      date: '2025-08-09',
+      time: '15:00',
+      location: 'Kamenka',
+      type: 'Mladí hasiči',
+      description: 'Prázdninové akce a zábava pro děti 2025',
+      icon: GraduationCap,
+      color: 'from-blue-500 to-green-500'
     },
     {
       id: 3,
-      title: 'Začátek přípravy na sezónu',
-      date: '2025-03-01',
-      time: '16:00',
-      location: 'Hasičská zbrojnice',
-      type: 'Trénink',
-      description: 'Zahájení přípravy na hasičskou sezónu 2025 - kontrola techniky',
-      icon: Flame,
-      color: 'from-orange-500 to-red-600'
+      title: 'Soutěž Véska',
+      date: '2025-07-27',
+      time: '9:00',
+      location: 'Véska',
+      type: 'Soutěž',
+      description: 'Hasičská soutěž ve Vésce 2025',
+      icon: Trophy,
+      color: 'from-yellow-500 to-orange-500'
     },
     {
       id: 4,
-      title: 'Mladí hasiči - nábor',
-      date: '2025-03-08',
-      time: '16:00',
-      location: 'Hasičská zbrojnice',
-      type: 'Mladí hasiči',
-      description: 'Den otevřených dveří pro nové zájemce o kroužek mladých hasičů',
-      icon: GraduationCap,
-      color: 'from-green-500 to-blue-500'
+      title: 'Červencová Noc',
+      date: '2025-07-20',
+      time: '19:00',
+      location: 'Kamenka',
+      type: 'Kulturní akce',
+      description: 'Červencová noc s hasičským sborem 2025',
+      icon: Heart,
+      color: 'from-purple-500 to-pink-500'
     },
     {
       id: 5,
-      title: 'Okrskové cvičení',
-      date: '2025-04-12',
+      title: 'Kácení máje',
+      date: '2025-06-08',
+      time: '15:00',
+      location: 'Kamenka - náves',
+      type: 'Kulturní akce',
+      description: 'Tradiční kácení májky v obci 2025',
+      icon: Heart,
+      color: 'from-green-500 to-blue-500'
+    },
+    {
+      id: 6,
+      title: 'Stavění máje',
+      date: '2025-05-11',
       time: '14:00',
-      location: 'Odry - náměstí',
+      location: 'Kamenka - náves',
+      type: 'Kulturní akce',
+      description: 'Tradiční stavění májky v obci 2025',
+      icon: Heart,
+      color: 'from-green-500 to-blue-500'
+    },
+    {
+      id: 7,
+      title: 'Okrsková soutěž Tošovice',
+      date: '2025-05-11',
+      time: '10:00',
+      location: 'Tošovice',
       type: 'Soutěž',
-      description: 'Společné cvičení hasičů z okrsku Odry',
+      description: 'Okrsková hasičská soutěž v Tošovicích 2025',
       icon: Trophy,
       color: 'from-yellow-500 to-orange-500'
     }
@@ -108,13 +131,13 @@ export default function KalendarPage() {
       {/* Rychlý přehled */}
       <section className="py-12 bg-white border-b">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {[
-              { label: 'Celkem akcí', value: events.length, color: 'fire' },
-              { label: 'Tento měsíc', value: 2, color: 'blue' },
-              { label: 'Soutěže', value: 1, color: 'yellow' },
-              { label: 'Kulturní akce', value: 1, color: 'pink' },
-              { label: 'Tréninky', value: 1, color: 'green' }
+              { label: 'Celkem akcí', value: 37, color: 'fire' },
+              { label: 'Soutěže', value: 11, color: 'yellow' },
+              { label: 'Kulturní akce', value: 24, color: 'pink' },
+              { label: 'Cvičení', value: 2, color: 'green' },
+              { label: 'Let zkušeností', value: 142, color: 'blue' }
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}

@@ -262,6 +262,21 @@ body {
     overflow-x: hidden;
     position: relative;
   }
+
+  /* Fix infinite scroll in mobile menu */
+  body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
+
+  /* Mobile menu container fix */
+  .mobile-menu-container {
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 100vh;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 /* High DPI display optimizations */
@@ -283,6 +298,12 @@ body {
 
   /* Reduce navigation height in landscape */
   .nav-mobile-landscape {
-    height: 60px !important;
+    height: 50px !important;
+  }
+
+  /* Optimize mobile menu in landscape */
+  .mobile-menu-landscape {
+    padding-top: 50px !important;
+    max-height: calc(100vh - 50px) !important;
   }
 }

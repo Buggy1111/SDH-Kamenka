@@ -27,6 +27,20 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Fix infinite scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.classList.add('menu-open')
+    } else {
+      document.body.classList.remove('menu-open')
+    }
+
+    // Cleanup when component unmounts
+    return () => {
+      document.body.classList.remove('menu-open')
+    }
+  }, [isMobileMenuOpen])
+
   return (
     <>
       {/* ULTRA MODERN NAVIGATION - APPLE INSPIRED */}
