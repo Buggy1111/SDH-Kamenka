@@ -10,7 +10,7 @@ export default function About() {
     {
       icon: Calendar,
       title: 'Založeno 1879',
-      description: 'Více než 145 let tradice a služby občanům'
+      description: 'Více než 142 let tradice a služby občanům'
     },
     {
       icon: Award,

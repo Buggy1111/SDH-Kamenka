@@ -18,6 +18,74 @@ const SectionLoader = () => (
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "EmergencyService",
+            "name": "SDH Kamenka - Sbor dobrovolných hasičů",
+            "alternateName": "Sbor dobrovolných hasičů Kamenka",
+            "description": "Oficiální sbor dobrovolných hasičů obce Kamenka, zásahová jednotka JPO III založená roku 1879",
+            "url": "https://sdh-kamenka.vercel.app",
+            "foundingDate": "1879",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Kamenka č.p. 40",
+              "addressLocality": "Kamenka",
+              "addressRegion": "Moravskoslezský kraj",
+              "postalCode": "742 35",
+              "addressCountry": "CZ"
+            },
+            "areaServed": {
+              "@type": "GeoCircle",
+              "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": "49.6794",
+                "longitude": "17.8781"
+              },
+              "geoRadius": "10000"
+            },
+            "serviceType": [
+              "Požární zásahy",
+              "Technická pomoc",
+              "Záchranné operace",
+              "Prevence požárů",
+              "Hasičský sport",
+              "Práce s mládeží"
+            ],
+            "parentOrganization": {
+              "@type": "GovernmentOrganization",
+              "name": "Hasičský záchranný sbor Moravskoslezského kraje"
+            },
+            "sameAs": [
+              "https://www.facebook.com/sdhkamenka"
+            ]
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "GovernmentOrganization",
+            "name": "SDH Kamenka",
+            "legalName": "Sbor dobrovolných hasičů Kamenka",
+            "description": "Sbor dobrovolných hasičů založený roku 1879 v obci Kamenka, okres Nový Jičín",
+            "foundingDate": "1879",
+            "logo": "https://sdh-kamenka.vercel.app/favicon.ico",
+            "image": "https://sdh-kamenka.vercel.app/images/uvod.webp",
+            "url": "https://sdh-kamenka.vercel.app",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Kamenka",
+              "addressRegion": "Moravskoslezský kraj",
+              "addressCountry": "CZ"
+            }
+          })
+        }}
+      />
       <Navigation />
       <Hero />
 

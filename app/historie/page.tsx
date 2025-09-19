@@ -171,49 +171,23 @@ export default function HistoriePage() {
     <>
       <Navigation />
 
-      {/* Hero Section with Parallax */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Animated Background */}
-        <motion.div
-          className="absolute inset-0 z-0"
-          style={{ y }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-black via-red-950 to-black" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(239,68,68,0.3),transparent_50%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_50%,rgba(249,115,22,0.3),transparent_50%)]" />
-        </motion.div>
-
-        {/* Content */}
-        <motion.div
-          className="relative z-10 text-center px-4 max-w-6xl mx-auto"
-          style={{ opacity, scale }}
-        >
+      {/* Hero Section */}
+      <section className="pt-24 pb-12 bg-black text-white">
+        <div className="container mx-auto px-4">
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.6 }}
+            className="text-center"
           >
-            <Clock className="w-18 h-18 text-orange-500 mx-auto mb-5" />
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-red-500 mb-5">
-              141 LET
+            <h1 className="text-3xl md:text-5xl font-display font-bold mb-3">
+              Historie
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-red-500 mb-3">
-              TRADICE A ODVAHA
-            </p>
-            <p className="text-lg md:text-xl text-red-400 max-w-3xl mx-auto">
-              Od roku 1883 chráníme životy a majetek občanů Kamenky
+            <p className="text-lg text-fire-100 max-w-3xl mx-auto">
+              142 let tradice a služby občanům - od roku 1883 chráníme životy a majetek
             </p>
           </motion.div>
-
-          <motion.div
-            className="mt-16"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.5 }}
-          >
-            <ChevronDown className="w-8 h-8 text-orange-500 mx-auto animate-bounce" />
-          </motion.div>
-        </motion.div>
+        </div>
       </section>
 
       {/* Interactive Timeline */}
@@ -244,7 +218,7 @@ export default function HistoriePage() {
                   initial={{ opacity: 0, x: isLeft ? -100 : 100 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  transition={{ duration: 0.6, delay: index * 0.03 }}
                 >
                   {/* Content */}
                   <div className={`w-full md:w-5/12 ${isLeft ? 'md:text-right md:pr-10' : 'md:text-left md:pl-10'} text-center px-2 sm:px-4 mb-6 md:mb-0`}>
@@ -525,7 +499,7 @@ export default function HistoriePage() {
 
           <div className="grid md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             {[
-              { icon: Calendar, number: '141', label: 'Let tradice' },
+              { icon: Calendar, number: '142', label: 'Let tradice' },
               { icon: Users, number: '44', label: 'Členů v roce 2006' },
               { icon: Shield, number: '3', label: 'Zbrojnice v historii' },
               { icon: History, number: '1879', label: 'Rok založení' }
@@ -565,7 +539,7 @@ export default function HistoriePage() {
             </h2>
 
             <p className="text-lg md:text-xl text-red-400 max-w-3xl mx-auto">
-              Toto historické motto zůstává základem naší služby již více než 140 let.
+              Toto historické motto zůstává základem naší služby již více než 142 let.
               Spojuje tradici s moderními hodnotami a připomíná nám náš závazek vůči komunitě.
             </p>
           </motion.div>

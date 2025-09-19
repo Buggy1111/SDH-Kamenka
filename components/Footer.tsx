@@ -82,7 +82,7 @@ export default function Footer() {
               </div>
 
               <p className="text-gray-300 leading-relaxed mb-6 text-base">
-                Více než 140 let chráníme životy a majetek.
+                Více než 142 let chráníme životy a majetek.
                 Jsme hrdou součástí obce Kamenka.
               </p>
 

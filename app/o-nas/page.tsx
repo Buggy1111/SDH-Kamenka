@@ -28,7 +28,7 @@ export default function ONasPage() {
     {
       icon: Trophy,
       title: 'Tradice a hodnoty',
-      description: 'Navazujeme na více než 140letou tradici dobrovolné hasičské služby'
+      description: 'Navazujeme na více než 142letou tradici dobrovolné hasičské služby'
     },
     {
       icon: Target,
@@ -101,6 +101,7 @@ export default function ONasPage() {
                     src="/images/uvod.webp"
                     alt="SDH Kamenka - náš sbor"
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover"
                     loading="lazy"
                     placeholder="blur"
