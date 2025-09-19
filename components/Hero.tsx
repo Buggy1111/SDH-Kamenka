@@ -8,14 +8,14 @@ import Link from 'next/link'
 export default function Hero() {
 
   const stats = [
-    { icon: Shield, label: 'Let zkušeností', value: '141' },
+    { icon: Shield, label: 'Let zkušeností', value: '142' },
     { icon: Users, label: 'Aktivních členů', value: '42' },
     { icon: Flame, label: 'Zásahů ročně', value: '30+' },
     { icon: Clock, label: 'Minut do výjezdu', value: '< 5' },
   ]
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className="relative min-h-screen w-full overflow-hidden pt-20">
       {/* Background gradient */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-red-600 via-red-700 to-orange-800" />
