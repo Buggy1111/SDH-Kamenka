@@ -204,62 +204,10 @@ export default function NavigationMobile({
                           </div>
                         </div>
 
-                        <motion.div
-                          animate={{ x: isActive ? 5 : 0 }}
-                          transition={{ duration: 0.2 }}
-                          className="relative z-10"
-                        >
-                          <ChevronDown className={`h-3 w-3 sm:h-4 sm:w-4 transition-colors ${
-                            isActive ? 'text-fire-300' : 'text-gray-500 group-hover:text-fire-400'
-                          }`} />
-                        </motion.div>
+                        {/* Removed ChevronDown arrow - no submenu in mobile */}
                       </Link>
 
-                      {/* Luxury Expandable Submenu */}
-                      <AnimatePresence>
-                        {item.submenu && isActive && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: 'auto' }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.4, ease: "easeInOut" }}
-                            className="ml-6 mt-3 space-y-2 overflow-hidden"
-                          >
-                            {item.submenu.map((subItem, subIndex) => (
-                              <motion.div
-                                key={subItem.href}
-                                initial={{ opacity: 0, x: 20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: subIndex * 0.1, duration: 0.3 }}
-                              >
-                                <Link
-                                  href={subItem.href}
-                                  onClick={() => setIsMobileMenuOpen(false)}
-                                  className="group flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-fire-600/10 hover:border-fire-500/30 transition-all duration-300 active:scale-95"
-                                  style={{
-                                    backdropFilter: 'blur(5px)'
-                                  }}
-                                >
-                                  <motion.div
-                                    whileHover={{ scale: 1.1, rotate: 10 }}
-                                    className={`p-2 bg-gradient-to-br ${getSubmenuIconBackground(subItem.label)} rounded-lg border transition-all`}
-                                  >
-                                    {subItem.icon && <subItem.icon className={`h-4 w-4 ${getSubmenuIconColor(subItem.label)}`} />}
-                                  </motion.div>
-                                  <div className="flex-1">
-                                    <div className="font-semibold text-sm text-gray-200 group-hover:text-white transition-colors">
-                                      {subItem.label}
-                                    </div>
-                                    <div className="text-xs text-gray-400 group-hover:text-fire-300 transition-colors">
-                                      {subItem.description}
-                                    </div>
-                                  </div>
-                                </Link>
-                              </motion.div>
-                            ))}
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
+                      {/* Submenu disabled for mobile to prevent overflow */}
                     </motion.div>
                   )
                 })}
