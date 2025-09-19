@@ -321,7 +321,7 @@ export default function Gallery() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.01 }}
             className="mb-16 last:mb-0"
           >
             {/* Category Header */}
@@ -336,14 +336,14 @@ export default function Gallery() {
 
             {/* Albums Grid */}
             {category.albums.length > 0 ? (
-              <div className="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6">
                 {category.albums.map((album, index) => (
                   <motion.div
                     key={album.name}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: index * 0.05 }}
-                    viewport={{ once: true, amount: 0.3 }}
+                    viewport={{ once: true, amount: 0.1 }}
                     className="group relative"
                   >
                     <Link
