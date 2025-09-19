@@ -190,25 +190,6 @@ export default function NavigationMobile({
                 </motion.button>
               </div>
 
-              {/* Emergency Call Button */}
-              <motion.a
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                href="tel:150"
-                className="flex items-center justify-center gap-3 w-full py-4 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white rounded-2xl font-semibold text-base shadow-lg shadow-red-500/25 transition-all duration-300"
-              >
-                <motion.div
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ repeat: Infinity, duration: 2 }}
-                  className="p-1 bg-white/20 rounded-full"
-                >
-                  <Phone className="h-5 w-5" />
-                </motion.div>
-                <div>
-                  <div>Tísňové volání</div>
-                  <div className="text-sm opacity-90">Zavolejte 150</div>
-                </div>
-              </motion.a>
 
               {/* Status Indicator */}
               <div className="flex items-center justify-center gap-2 mt-2 mb-4 text-xs text-gray-500">

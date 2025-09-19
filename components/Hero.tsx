@@ -130,7 +130,12 @@ export default function Hero() {
                     transition={{ delay: 0.6 + index * 0.05, duration: 0.3 }}
                     whileHover={{ scale: 1.02, y: -2 }}
                     whileTap={{ scale: 0.98 }}
-                    className="bg-white backdrop-blur-md border-2 border-white rounded-lg p-2 sm:p-3 shadow-2xl cursor-pointer hover:shadow-3xl transition-all hover:border-red-300"
+                    className="bg-white/95 backdrop-blur-sm border-2 border-white/90 rounded-lg p-2 sm:p-3 shadow-2xl cursor-pointer hover:shadow-3xl transition-all hover:border-red-300"
+                    style={{
+                      backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                      WebkitBackdropFilter: 'blur(4px)',
+                      backdropFilter: 'blur(4px)'
+                    }}
                   >
                     <stat.icon className="h-4 w-4 sm:h-5 sm:w-5 mx-auto mb-1 sm:mb-2 text-red-600" />
                     <div className="text-2xl sm:text-3xl font-black text-gray-900">{stat.value}</div>

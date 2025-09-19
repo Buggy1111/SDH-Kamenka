@@ -249,7 +249,7 @@ export default function HistoriePage() {
                   {/* Content */}
                   <div className={`w-full md:w-5/12 ${isLeft ? 'md:text-right md:pr-10' : 'md:text-left md:pl-10'} text-center px-2 sm:px-4 mb-6 md:mb-0`}>
                     <motion.div
-                      className="glass-effect p-3 sm:p-4 md:p-6 rounded-2xl transition-all duration-300 hover:shadow-2xl hover:z-50 relative cursor-pointer max-w-sm sm:max-w-md"
+                      className="glass-effect p-3 sm:p-4 md:p-6 rounded-2xl transition-all duration-300 hover:shadow-2xl hover:z-50 relative cursor-pointer max-w-sm sm:max-w-md mx-auto md:mx-0"
                       whileHover={{ scale: 1.01 }}
                       transition={{ type: "spring", stiffness: 200, damping: 10 }}
                     >
@@ -261,21 +261,34 @@ export default function HistoriePage() {
                     </motion.div>
                   </div>
 
-                  {/* Center icon */}
+                  {/* Center icon - hidden on mobile, only visible on md+ */}
                   <motion.div
-                    className="absolute left-1/2 transform -translate-x-1/2 z-10 cursor-pointer"
+                    className="hidden md:block absolute left-1/2 transform -translate-x-1/2 z-50 cursor-pointer"
                     whileHover={{ scale: 1.1, rotate: 180 }}
                     transition={{ type: "spring", stiffness: 200, damping: 10 }}
                   >
-                    <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r ${event.color} p-1`}>
-                      <div className="w-full h-full rounded-full bg-black flex items-center justify-center">
-                        <Icon className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
+                    <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r ${event.color} p-1 shadow-xl`}>
+                      <div className="w-full h-full rounded-full bg-black flex items-center justify-center shadow-lg">
+                        <Icon className="w-4 h-4 sm:w-6 sm:h-6 text-white drop-shadow-lg" />
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Mobile icon - only visible on mobile */}
+                  <motion.div
+                    className="md:hidden flex items-center justify-center mb-4"
+                    whileHover={{ scale: 1.1, rotate: 180 }}
+                    transition={{ type: "spring", stiffness: 200, damping: 10 }}
+                  >
+                    <div className={`w-8 h-8 rounded-full bg-gradient-to-r ${event.color} p-1 shadow-xl`}>
+                      <div className="w-full h-full rounded-full bg-black flex items-center justify-center shadow-lg">
+                        <Icon className="w-4 h-4 text-white drop-shadow-lg" />
                       </div>
                     </div>
                   </motion.div>
 
                   {/* Empty space for alignment */}
-                  <div className="w-5/12" />
+                  <div className="hidden md:block w-5/12" />
                 </motion.div>
               )
             })}

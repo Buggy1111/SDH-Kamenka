@@ -281,7 +281,7 @@ export default function Gallery() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.01 }}
             className="mb-16 last:mb-0"
           >
             {/* Category Header */}
@@ -296,14 +296,14 @@ export default function Gallery() {
 
             {/* Albums Grid */}
             {category.albums.length > 0 ? (
-              <div className="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6">
                 {category.albums.map((album, index) => (
                   <motion.div
                     key={album.name}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.05 }}
-                    viewport={{ once: true, amount: 0.3 }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.2 }}
+                    viewport={{ once: true, amount: 0.01 }}
                     className="group relative"
                   >
                     <div
@@ -319,7 +319,7 @@ export default function Gallery() {
                             fill
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             className="object-cover"
-                            loading="lazy"
+                            loading="eager"
                           />
                           <div className="absolute inset-0 bg-black/30" />
                           <div className="absolute inset-0 flex items-center justify-center">
@@ -375,7 +375,7 @@ export default function Gallery() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.1 }}
           className="text-center mt-12 bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl p-8"
         >
           <h3 className="text-2xl font-bold text-gray-900 mb-4">
