@@ -1,0 +1,60 @@
+{
+  "news": [
+    {
+      "id": 1,
+      "title": "Kamenský špalek 2025",
+      "excerpt": "Tradiční setkání Kamenský Špalek se konalo 13. září 2025. Skvělá atmosféra a účast!",
+      "date": "2025-09-13",
+      "category": "Akce",
+      "icon": "Trophy",
+      "featured": true
+    },
+    {
+      "id": 2,
+      "title": "Super prázdniny 2025",
+      "excerpt": "Prázdninové akce a zábava pro děti proběhly v srpnu. Děti si užily spoustu zábavy!",
+      "date": "2025-08-09",
+      "category": "Děti",
+      "icon": "Users"
+    },
+    {
+      "id": 3,
+      "title": "Soutěž Véska 2025",
+      "excerpt": "Naši hasiči se zúčastnili hasičské soutěže ve Vésce dne 27. července 2025.",
+      "date": "2025-07-27",
+      "category": "Soutěže",
+      "icon": "Flame"
+    }
+  ],
+  "upcomingEvents": [
+    {
+      "date": "28.9.",
+      "title": "Ukončení hasičské sezóny",
+      "time": "16:00",
+      "description": "Slavnostní ukončení hasičské sezóny 2024. Grilování, zábava pro členy a jejich rodiny.",
+      "location": "Hasičská zbrojnice Kamenka",
+      "duration": 4
+    },
+    {
+      "date": "5.10.",
+      "title": "Námětové cvičení",
+      "time": "9:00",
+      "description": "Námětové cvičení jednotky - simulace zásahu u dopravní nehody.",
+      "location": "Hasičská zbrojnice Kamenka",
+      "duration": 3
+    },
+    {
+      "date": "26.10.",
+      "title": "Drakiáda",
+      "time": "14:00",
+      "description": "Tradiční pouštění draků pro děti i dospělé. Soutěž o nejlepšího draka.",
+      "location": "Louka za hasičárnou",
+      "duration": 3
+    }
+  ],
+  "stats2025": {
+    "vyjezdy": 3,
+    "cviceni": 2,
+    "skoleni": 1
+  }
+}

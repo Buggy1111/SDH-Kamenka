@@ -1,0 +1,88 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "title": "Kamenský špalek",
+      "date": "2025-09-13",
+      "time": "16:00",
+      "location": "Kamenka",
+      "type": "Kulturní akce",
+      "description": "Kamenský Špalek - tradiční setkání 2025",
+      "icon": "Heart",
+      "color": "from-orange-500 to-red-500"
+    },
+    {
+      "id": 2,
+      "title": "Super prázdniny",
+      "date": "2025-08-09",
+      "time": "15:00",
+      "location": "Kamenka",
+      "type": "Mladí hasiči",
+      "description": "Prázdninové akce a zábava pro děti 2025",
+      "icon": "GraduationCap",
+      "color": "from-blue-500 to-green-500"
+    },
+    {
+      "id": 3,
+      "title": "Soutěž Véska",
+      "date": "2025-07-27",
+      "time": "9:00",
+      "location": "Véska",
+      "type": "Soutěž",
+      "description": "Hasičská soutěž ve Vésce 2025",
+      "icon": "Trophy",
+      "color": "from-yellow-500 to-orange-500"
+    },
+    {
+      "id": 4,
+      "title": "Červencová Noc",
+      "date": "2025-07-20",
+      "time": "19:00",
+      "location": "Kamenka",
+      "type": "Kulturní akce",
+      "description": "Červencová noc s hasičským sborem 2025",
+      "icon": "Heart",
+      "color": "from-purple-500 to-pink-500"
+    },
+    {
+      "id": 5,
+      "title": "Kácení máje",
+      "date": "2025-06-08",
+      "time": "15:00",
+      "location": "Kamenka - náves",
+      "type": "Kulturní akce",
+      "description": "Tradiční kácení májky v obci 2025",
+      "icon": "Heart",
+      "color": "from-green-500 to-blue-500"
+    },
+    {
+      "id": 6,
+      "title": "Stavění máje",
+      "date": "2025-05-11",
+      "time": "14:00",
+      "location": "Kamenka - náves",
+      "type": "Kulturní akce",
+      "description": "Tradiční stavění májky v obci 2025",
+      "icon": "Heart",
+      "color": "from-green-500 to-blue-500"
+    },
+    {
+      "id": 7,
+      "title": "Okrsková soutěž Tošovice",
+      "date": "2025-05-11",
+      "time": "10:00",
+      "location": "Tošovice",
+      "type": "Soutěž",
+      "description": "Okrsková hasičská soutěž v Tošovicích 2025",
+      "icon": "Trophy",
+      "color": "from-yellow-500 to-orange-500"
+    }
+  ],
+  "stats": {
+    "totalEvents": 37,
+    "competitions": 11,
+    "culturalEvents": 24,
+    "trainings": 2,
+    "yearsOfExperience": 142
+  }
+}

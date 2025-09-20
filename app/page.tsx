@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react'
 import Hero from '@/components/Hero'
 import Navigation from '@/components/Navigation'
+import UpcomingEventBanner from '@/components/UpcomingEventBanner'
 
 // Lazy load komponenty co nejsou crítico "above the fold"
 const Services = lazy(() => import('@/components/Services'))
@@ -87,6 +88,7 @@ export default function Home() {
         }}
       />
       <Navigation />
+      <UpcomingEventBanner />
       <Hero />
 
       <Suspense fallback={<SectionLoader />}>

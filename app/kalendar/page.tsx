@@ -4,95 +4,75 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { motion } from 'framer-motion'
 import { Calendar, Clock, MapPin, Users, Trophy, Heart, Flame, GraduationCap } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import * as LucideIcons from 'lucide-react'
+
+interface Event {
+  id: number
+  title: string
+  date: string
+  time: string
+  location: string
+  type: string
+  description: string
+  icon: string
+  color: string
+}
+
+interface CalendarData {
+  events: Event[]
+  stats: {
+    totalEvents: number
+    competitions: number
+    culturalEvents: number
+    trainings: number
+    yearsOfExperience: number
+  }
+}
 
 export default function KalendarPage() {
-  const events = [
-    // Skutečné události z galerie - seřazeno od září dolů
-    {
-      id: 1,
-      title: 'Kamenský špalek',
-      date: '2025-09-13',
-      time: '16:00',
-      location: 'Kamenka',
-      type: 'Kulturní akce',
-      description: 'Kamenský Špalek - tradiční setkání 2025',
-      icon: Heart,
-      color: 'from-orange-500 to-red-500'
-    },
-    {
-      id: 2,
-      title: 'Super prázdniny',
-      date: '2025-08-09',
-      time: '15:00',
-      location: 'Kamenka',
-      type: 'Mladí hasiči',
-      description: 'Prázdninové akce a zábava pro děti 2025',
-      icon: GraduationCap,
-      color: 'from-blue-500 to-green-500'
-    },
-    {
-      id: 3,
-      title: 'Soutěž Véska',
-      date: '2025-07-27',
-      time: '9:00',
-      location: 'Véska',
-      type: 'Soutěž',
-      description: 'Hasičská soutěž ve Vésce 2025',
-      icon: Trophy,
-      color: 'from-yellow-500 to-orange-500'
-    },
-    {
-      id: 4,
-      title: 'Červencová Noc',
-      date: '2025-07-20',
-      time: '19:00',
-      location: 'Kamenka',
-      type: 'Kulturní akce',
-      description: 'Červencová noc s hasičským sborem 2025',
-      icon: Heart,
-      color: 'from-purple-500 to-pink-500'
-    },
-    {
-      id: 5,
-      title: 'Kácení máje',
-      date: '2025-06-08',
-      time: '15:00',
-      location: 'Kamenka - náves',
-      type: 'Kulturní akce',
-      description: 'Tradiční kácení májky v obci 2025',
-      icon: Heart,
-      color: 'from-green-500 to-blue-500'
-    },
-    {
-      id: 6,
-      title: 'Stavění máje',
-      date: '2025-05-11',
-      time: '14:00',
-      location: 'Kamenka - náves',
-      type: 'Kulturní akce',
-      description: 'Tradiční stavění májky v obci 2025',
-      icon: Heart,
-      color: 'from-green-500 to-blue-500'
-    },
-    {
-      id: 7,
-      title: 'Okrsková soutěž Tošovice',
-      date: '2025-05-11',
-      time: '10:00',
-      location: 'Tošovice',
-      type: 'Soutěž',
-      description: 'Okrsková hasičská soutěž v Tošovicích 2025',
-      icon: Trophy,
-      color: 'from-yellow-500 to-orange-500'
+  const [calendarData, setCalendarData] = useState<CalendarData>({
+    events: [],
+    stats: {
+      totalEvents: 0,
+      competitions: 0,
+      culturalEvents: 0,
+      trainings: 0,
+      yearsOfExperience: 142
     }
-  ]
+  })
 
-  const monthlyEvents = events.reduce((acc, event) => {
+  useEffect(() => {
+    fetch('/data/calendar.json')
+      .then(res => res.json())
+      .then((data: CalendarData) => {
+        setCalendarData(data)
+      })
+      .catch(error => {
+        console.error('Error loading calendar data:', error)
+      })
+  }, [])
+
+  const getIcon = (iconName: string) => {
+    const icons = {
+      Heart,
+      Trophy,
+      GraduationCap,
+      Flame,
+      Users,
+      Calendar,
+      Clock,
+      MapPin
+    } as any
+    return icons[iconName] || Heart
+  }
+
+  const monthlyEvents = calendarData.events.reduce((acc, event) => {
     const month = new Date(event.date).toLocaleDateString('cs-CZ', { month: 'long', year: 'numeric' })
     if (!acc[month]) acc[month] = []
     acc[month].push(event)
     return acc
-  }, {} as Record<string, typeof events>)
+  }, {} as Record<string, Event[]>)
 
   const getEventTypeColor = (type: string) => {
     const colors: Record<string, string> = {
@@ -133,11 +113,11 @@ export default function KalendarPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {[
-              { label: 'Celkem akcí', value: 37, color: 'fire' },
-              { label: 'Soutěže', value: 11, color: 'yellow' },
-              { label: 'Kulturní akce', value: 24, color: 'pink' },
-              { label: 'Cvičení', value: 2, color: 'green' },
-              { label: 'Let zkušeností', value: 142, color: 'blue' }
+              { label: 'Celkem akcí', value: calendarData.stats.totalEvents, color: 'fire' },
+              { label: 'Soutěže', value: calendarData.stats.competitions, color: 'yellow' },
+              { label: 'Kulturní akce', value: calendarData.stats.culturalEvents, color: 'pink' },
+              { label: 'Cvičení', value: calendarData.stats.trainings, color: 'green' },
+              { label: 'Let zkušeností', value: calendarData.stats.yearsOfExperience, color: 'blue' }
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -188,39 +168,41 @@ export default function KalendarPage() {
                 </h3>
                 
                 <div className="space-y-4">
-                  {monthEvents.map((event, index) => (
-                    <motion.div
-                      key={event.id}
-                      initial={{ opacity: 0, x: -30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden"
-                    >
-                      <div className="flex">
-                        {/* Date column */}
-                        <div className={`w-24 flex-shrink-0 bg-gradient-to-br ${event.color} text-white p-4 flex flex-col items-center justify-center`}>
-                          <div className="text-xl font-bold">
-                            {new Date(event.date).getDate()}
-                          </div>
-                          <div className="text-xs uppercase">
-                            {new Date(event.date).toLocaleDateString('cs-CZ', { month: 'short' })}
-                          </div>
-                        </div>
-
-                        {/* Content */}
-                        <div className="flex-1 p-6">
-                          <div className="flex items-start justify-between mb-3">
-                            <div>
-                              <h4 className="text-lg font-bold text-black mb-1">
-                                {event.title}
-                              </h4>
-                              <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${getEventTypeColor(event.type)}`}>
-                                {event.type}
-                              </span>
+                  {monthEvents.map((event, index) => {
+                    const IconComponent = getIcon(event.icon)
+                    return (
+                      <motion.div
+                        key={event.id}
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        viewport={{ once: true }}
+                        className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden"
+                      >
+                        <div className="flex">
+                          {/* Date column */}
+                          <div className={`w-24 flex-shrink-0 bg-gradient-to-br ${event.color} text-white p-4 flex flex-col items-center justify-center`}>
+                            <div className="text-xl font-bold">
+                              {new Date(event.date).getDate()}
                             </div>
-                            <event.icon className={`h-6 w-6 text-fire-600`} />
+                            <div className="text-xs uppercase">
+                              {new Date(event.date).toLocaleDateString('cs-CZ', { month: 'short' })}
+                            </div>
                           </div>
+
+                          {/* Content */}
+                          <div className="flex-1 p-6">
+                            <div className="flex items-start justify-between mb-3">
+                              <div>
+                                <h4 className="text-lg font-bold text-black mb-1">
+                                  {event.title}
+                                </h4>
+                                <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${getEventTypeColor(event.type)}`}>
+                                  {event.type}
+                                </span>
+                              </div>
+                              <IconComponent className={`h-6 w-6 text-fire-600`} />
+                            </div>
 
                           <p className="text-black mb-3 text-sm font-medium">{event.description}</p>
 
@@ -237,7 +219,8 @@ export default function KalendarPage() {
                         </div>
                       </div>
                     </motion.div>
-                  ))}
+                    )
+                  })}
                 </div>
               </motion.div>
             ))}
