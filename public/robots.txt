@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://sdhkamenka.cz/sitemap.xml
+Sitemap: https://sdh-kamenka.vercel.app/sitemap.xml
 
 # Disallow admin pages
 Disallow: /admin
