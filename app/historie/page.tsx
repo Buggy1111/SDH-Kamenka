@@ -369,19 +369,40 @@ export default function HistoriePage() {
                 V roce 2006 byl přeřazen z okrsku Heřmanice do okrsku Odry.
                 V roce 2016 byl název oficiálně upraven na &quot;SHČMS - Sbor dobrovolných hasičů Kaménka&quot;.
               </p>
-              <p className="text-gray-900 leading-relaxed mt-4">
-                <strong>Kompletní historie vedení sboru:</strong><br />
-                <strong>1883-1945:</strong> Franz Löw (velitel) - nejdelší období vedení v historii<br />
-                <strong>1945-1958:</strong> František Ramík (první starosta po válce)<br />
-                <strong>1958-1961:</strong> Albín Chromek, Bohumil Vardžák (předsedové)<br />
-                <strong>1961-1971:</strong> Albín Chromek (předseda)<br />
-                <strong>1971-1980:</strong> Silvestr Vardžák (předseda)<br />
-                <strong>1980-1992:</strong> Jaroslav Helísek (předseda)<br />
-                <strong>Od 1992 - moderní starostové:</strong> Josef Polcík (1992), Zdeněk Vardžák (1994-1998, 2002-2006),
-                Olga Hajchlová (1998-2001, první žena), Radek Bürgermeister (2001-2002),
-                Dalibor Bürgermeister (2006-2015), Tomáš Bouda (2015-2020),
-                Jan Pavlica (2020-2023), Dalibor Bűrgermeister (od 2023).
-              </p>
+            </motion.div>
+
+            {/* Kompletní historie vedení sboru */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-8 shadow-lg transition-all duration-300 hover:scale-[1.05] hover:shadow-2xl hover:z-50 relative"
+            >
+              <h3 className="text-xl font-bold text-red-600 mb-4 flex items-center gap-3">
+                <Users className="h-5 w-5" />
+                Kompletní historie vedení sboru
+              </h3>
+              <div className="space-y-2 text-gray-900">
+                <p><strong>1883-1945:</strong> Franz Löw (velitel) - nejdelší období vedení v historii</p>
+                <p><strong>1945-1958:</strong> František Ramík (první starosta po válce)</p>
+                <p><strong>1958-1961:</strong> Albín Chromek, Bohumil Vardžák (předsedové)</p>
+                <p><strong>1961-1971:</strong> Albín Chromek (předseda)</p>
+                <p><strong>1971-1980:</strong> Silvestr Vardžák (předseda)</p>
+                <p><strong>1980-1992:</strong> Jaroslav Helísek (předseda)</p>
+
+                <div className="mt-4 pt-4 border-t border-orange-200">
+                  <p className="font-bold text-red-600 mb-3">Od 1992 - moderní starostové:</p>
+                  <p><strong>1992:</strong> Josef Polcík</p>
+                  <p><strong>1994-1998:</strong> Zdeněk Vardžák</p>
+                  <p><strong>1998-2001:</strong> Olga Hajchlová (první žena)</p>
+                  <p><strong>2001-2002:</strong> Radek Bürgermeister</p>
+                  <p><strong>2002-2006:</strong> Zdeněk Vardžák</p>
+                  <p><strong>2006-2015:</strong> Dalibor Bürgermeister</p>
+                  <p><strong>2015-2020:</strong> Tomáš Bouda</p>
+                  <p><strong>2020-2023:</strong> Jan Pavlica</p>
+                  <p><strong>od 2023:</strong> Dalibor Bürgermeister</p>
+                </div>
+              </div>
 
               {/* Luxusní poděkování kronikáři */}
               <motion.div
